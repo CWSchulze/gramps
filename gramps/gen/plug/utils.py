@@ -293,7 +293,10 @@ def load_addon_file(path, callback=None):
     else:
         try:
             if path.startswith('file:///'):
-                path = path[8:]
+                if os.name == 'posix':
+                    path = path[7:]
+                else:
+                    path = path[8:]
             fp = open(path, 'rb')
         except:
             if callback:
