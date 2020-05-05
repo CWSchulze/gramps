@@ -283,7 +283,8 @@ def load_addon_file(path, callback=None):
     import tarfile
     if (path.startswith("http://") or
         path.startswith("https://") or
-        path.startswith("ftp://")):
+        path.startswith("ftp://") or
+        path.startswith("file://")):
         try:
             fp = urlopen_maybe_no_check_cert(path)
         except:
@@ -292,11 +293,6 @@ def load_addon_file(path, callback=None):
             return False
     else:
         try:
-            if path.startswith('file:///'):
-                if os.name == 'posix':
-                    path = path[7:]
-                else:
-                    path = path[8:]
             fp = open(path, 'rb')
         except:
             if callback:
