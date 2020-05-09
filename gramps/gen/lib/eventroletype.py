@@ -44,7 +44,7 @@ class EventRoleType(GrampsType):
     WITNESS = 7
     FAMILY = 8
     INFORMANT = 9
-    GODFATHER = 10
+    GODPARENT = 10
 
     _CUSTOM = CUSTOM
     _DEFAULT = PRIMARY
@@ -61,7 +61,7 @@ class EventRoleType(GrampsType):
         (WITNESS, _("Witness"), "Witness"),
         (FAMILY, _("Role|Family"), "Family"),
         (INFORMANT, _("Informant"), "Informant"),
-        (GODFATHER, _("Godfather"), "Godfather"),
+        (GODPARENT, _("Godparent"), "Godparent"),
         ]
 
     def __init__(self, value=None):
